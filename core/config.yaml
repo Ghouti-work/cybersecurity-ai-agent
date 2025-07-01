@@ -1,0 +1,172 @@
+# Configuration for Cybersecurity AI Agent Platform
+
+# Telegram Bot Settings
+telegram:
+  commands:
+    scan: "Trigger network/web scanning of target"
+    think: "Use PentestGPT reasoning for exploitation analysis"
+    report: "Generate and fetch latest security reports"
+    file: "Upload and analyze security-related files"
+    rss: "Fetch and process latest security RSS feeds"
+    fine_tune: "Prepare fine-tuning data from collected logs"
+    help: "Show available commands and usage"
+    status: "Show system status and statistics"
+
+# PentestGPT Prompts
+pentestgpt:
+  system_prompt: |
+    You are PentestGPT, an advanced AI cybersecurity expert specializing in:
+    - Vulnerability assessment and penetration testing
+    - Exploit development and security analysis
+    - Network reconnaissance and enumeration
+    - Web application security testing
+    - Social engineering assessment
+    
+    Always provide detailed, step-by-step analysis with:
+    1. Initial reconnaissance approach
+    2. Vulnerability identification methods
+    3. Exploitation techniques (educational purposes)
+    4. Mitigation strategies
+    5. Risk assessment and impact analysis
+    
+    Be thorough but concise. Focus on practical, actionable insights.
+
+  analysis_prompt: |
+    Analyze the following security scenario:
+    Target: {target}
+    Context: {context}
+    Objective: {objective}
+    
+    Provide a comprehensive analysis including:
+    - Reconnaissance strategy
+    - Potential attack vectors
+    - Exploitation methodology
+    - Expected outcomes
+    - Defensive recommendations
+
+# RSS Feed Sources
+rss_feeds:
+  vulnerability_databases:
+    - name: "NVD Recent CVEs"
+      url: "https://nvd.nist.gov/feeds/xml/cve/misc/nvd-rss.xml"
+      category: "vulnerabilities"
+    - name: "CVE Trends"
+      url: "https://cvetrends.com/rss"
+      category: "vulnerabilities"
+    
+  security_news:
+    - name: "KrebsOnSecurity"
+      url: "https://krebsonsecurity.com/feed/"
+      category: "news"
+    - name: "Dark Reading"
+      url: "https://www.darkreading.com/rss.xml"
+      category: "news"
+    - name: "The Hacker News"
+      url: "https://feeds.feedburner.com/TheHackersNews"
+      category: "news"
+  
+  research:
+    - name: "SANS ISC Diary"
+      url: "https://isc.sans.edu/rssfeed.xml"
+      category: "research"
+    - name: "Exploit-DB"
+      url: "https://www.exploit-db.com/rss.xml"
+      category: "exploits"
+
+# File Processing Configuration
+file_processing:
+  supported_formats:
+    - ".pdf"
+    - ".txt"
+    - ".md"
+    - ".html"
+    - ".json"
+    - ".xml"
+    - ".csv"
+  
+  classification_categories:
+    - "reconnaissance"
+    - "web_security"
+    - "network_security"
+    - "exploit_development"
+    - "malware_analysis"
+    - "incident_response"
+    - "compliance"
+    - "tools_techniques"
+  
+  extraction_prompts:
+    summary: "Summarize this cybersecurity document in 2-3 sentences, highlighting key vulnerabilities, techniques, or findings."
+    classification: "Classify this content into one of these categories: {categories}. Respond with only the category name."
+    tags: "Extract 5-10 relevant cybersecurity tags from this content (e.g., CVE numbers, tool names, attack types)."
+
+# RAG Embeddings Configuration  
+rag:
+  embedding_model: "intfloat/e5-small-v2"
+  chunk_size: 512
+  chunk_overlap: 50
+  similarity_threshold: 0.7
+  max_results: 10
+  
+  collections:
+    vulnerabilities: "CVE data, vulnerability reports, security advisories"
+    techniques: "Attack techniques, exploitation methods, tools"
+    intelligence: "Threat intelligence, IOCs, malware signatures"
+    reports: "Penetration test reports, security assessments"
+
+# Fine-tuning Configuration
+fine_tuning:
+  data_sources:
+    - "logs/pentestgpt/*.json"
+    - "rag_data/*/processed/*.json"
+    - "reports/*/*.md"
+  
+  prompt_templates:
+    instruction: "### Instruction:\n{instruction}\n\n### Response:\n{response}"
+    analysis: "### Security Analysis Request:\n{query}\n\n### Expert Analysis:\n{analysis}"
+    
+  validation_split: 0.1
+  max_sequence_length: 2048
+
+# Model Configuration
+models:
+  gemini:
+    model: "gemini-pro"
+    temperature: 0.7
+    max_tokens: 4096
+    top_p: 0.9
+    
+  azure_openai:
+    model: "gpt-4"
+    temperature: 0.7
+    max_tokens: 4096
+    
+  local_embedding:
+    model: "intfloat/e5-small-v2"
+    device: "cpu"  # Change to "cuda" if GPU available
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "{time:YYYY-MM-DD HH:mm:ss} | {level} | {name} | {message}"
+  retention: "30 days"
+  
+  files:
+    telegram: "logs/telegram/bot_{time:YYYY-MM-DD}.log"
+    pentestgpt: "logs/pentestgpt/reasoning_{time:YYYY-MM-DD}.log"
+    rss: "logs/rss/feeds_{time:YYYY-MM-DD}.log"
+    finetune: "logs/finetune/training_{time:YYYY-MM-DD}.log"
+
+# Security Settings
+security:
+  rate_limiting:
+    requests_per_minute: 60
+    burst_limit: 10
+  
+  file_upload:
+    max_size_mb: 50
+    allowed_types: [".pdf", ".txt", ".md", ".html", ".json"]
+    scan_uploads: true
+  
+  content_filtering:
+    enable_moderation: true
+    blocked_keywords: ["illegal", "harmful", "malicious_intent"]

@@ -1,0 +1,118 @@
+# =============================================================================
+# CYBERSECURITY AI PLATFORM - GITIGNORE
+# =============================================================================
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# API Keys and Secrets
+.env
+.env.local
+.env.production
+*.key
+*.pem
+config/api_keys.yaml
+config/secrets.yaml
+
+# Logs
+*.log
+logs/*.log
+data/logs/*.log
+
+# Data directories
+data/rag_data/chroma_db/
+data/temp/
+data/cache/
+*.db
+*.sqlite
+
+# Model files
+models/*.bin
+models/*.safetensors
+*.gguf
+*.h5
+
+# Large files
+*.tar.gz
+*.zip
+*.rar
+*.7z
+
+# Backup files
+*_backup.*
+*_old.*
+*.bak
+
+# Test artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Documentation build
+docs/_build/
+site/
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# CAI specific
+CAI/logs/
+CAI/workspaces/
+CAI/.venv*/
+
+# PentestGPT specific
+PentestGPT/logs/
+PentestGPT/save/
+
+# Platform specific
+monitoring/
+reports/daily/
+reports/weekly/
+finetune_data/raw/
+finetune_data/processed/
