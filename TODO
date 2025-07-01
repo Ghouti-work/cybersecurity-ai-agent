@@ -1,0 +1,13 @@
+- [x] add deepseek code 1.3b for local and secure use and for it finetuning.
+- [x] add gemini for books and file extraction and pentest gpt only 
+- [ ] try to deploy it
+- [x] find a bounty using it 
+- [x] add a way to connect to deferent vpn ( like tryhackme internal network )
+- [x] optimize CIA to use rag llm ( that work with local model )
+- [x] use pentestgpt with gemini only
+- [x] remove any use of gpt4 in my code 
+- [x] update the scripts to run under the new structer 
+- [x] update the logic for deployement as i will clone the project from github into the VM 
+- [x] make a using and installing guide for user 
+- [ ] update telegram command system to make most o the system 
+- [ ] 

@@ -33,8 +33,37 @@ cat << 'EOF'
 EOF
 echo -e "${NC}"
 
-PROJECT_DIR="$(pwd)"
-SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+# Project configuration with new structure
+PROJECT_NAME="cybersecurity-ai-agent"
+PROJECT_DIR="/opt/cybersecurity-ai-agent"
+GITHUB_REPO="https://github.com/Ghouti-work/cybersecurity-ai-agent.git"
+USER="cybersec"
+GROUP="cybersec"
+
+# Service configuration for new components
+SERVICES=(
+    "cybersec-main-agent"
+    "cybersec-telegram-bot" 
+    "cybersec-task-router"
+    "cybersec-health-monitor"
+    "cybersec-local-llm"
+    "cybersec-vpn-manager"
+    "cybersec-gemini-processor"
+)
+
+# New structure paths
+CORE_DIR="$PROJECT_DIR/core"
+AGENTS_DIR="$PROJECT_DIR/agents"
+INTEGRATIONS_DIR="$PROJECT_DIR/integrations"
+CONFIG_DIR="$PROJECT_DIR/config"
+DATA_DIR="/var/lib/cybersec-agent"
+LOG_DIR="/var/log/cybersec-agent"
+MODELS_DIR="$DATA_DIR/models"
+VPN_CONFIG_DIR="$CONFIG_DIR/vpn"
+
+# Additional configuration
+DEEPSEEK_MODEL="deepseek-ai/deepseek-coder-1.3b-instruct"
+GEMINI_MODEL="gemini-2.5-flash-latest"
 
 # Deployment mode selection
 echo -e "${WHITE}${BOLD}🚀 DEPLOYMENT MODE SELECTION${NC}"
@@ -408,6 +437,475 @@ elif [[ "$DEPLOYMENT_MODE" == "health" ]]; then
         echo -e "${RED}❌ Health monitor not available${NC}"
     fi
 fi
+
+# Function to clone/update project from GitHub
+setup_project_from_github() {
+    local target_dir=$1
+    local mode=$2
+    
+    echo -e "${CYAN}📥 Setting up project from GitHub...${NC}"
+    
+    if [[ "$mode" == "production" ]]; then
+        # Production deployment - fresh clone
+        if [[ -d "$target_dir" ]]; then
+            echo -e "${YELLOW}⚠️  Existing installation found. Creating backup...${NC}"
+            sudo mv "$target_dir" "${target_dir}_backup_$(date +%Y%m%d_%H%M%S)"
+        fi
+        
+        echo -e "${BLUE}🔄 Cloning repository...${NC}"
+        sudo git clone "$GITHUB_REPO" "$target_dir"
+        sudo chown -R "$USER:$GROUP" "$target_dir"
+        
+    else
+        # Local/development mode
+        if [[ ! -d ".git" ]]; then
+            echo -e "${YELLOW}⚠️  Not a git repository. Initializing...${NC}"
+            git init
+            git remote add origin "$GITHUB_REPO" 2>/dev/null || true
+        fi
+        
+        echo -e "${BLUE}🔄 Updating from remote...${NC}"
+        git fetch origin 2>/dev/null || echo -e "${YELLOW}⚠️  Could not fetch from remote (proceeding with local files)${NC}"
+    fi
+}
+
+# Function to install system dependencies for new components
+install_system_dependencies() {
+    echo -e "${BLUE}📦 Installing system dependencies...${NC}"
+    
+    # Core system packages
+    sudo apt update
+    sudo apt install -y \
+        python3-pip python3-venv python3-dev \
+        git curl wget nginx supervisor \
+        openvpn wireguard-tools \
+        nmap masscan \
+        sqlite3 postgresql-client \
+        build-essential \
+        libssl-dev libffi-dev \
+        fonts-liberation \
+        poppler-utils \
+        tesseract-ocr
+    
+    # Install Docker for containerized tools
+    if ! command -v docker &> /dev/null; then
+        echo -e "${BLUE}🐳 Installing Docker...${NC}"
+        curl -fsSL https://get.docker.com -o get-docker.sh
+        sudo sh get-docker.sh
+        sudo usermod -aG docker "$USER"
+        rm get-docker.sh
+    fi
+    
+    # Install Rust for some security tools
+    if ! command -v cargo &> /dev/null; then
+        echo -e "${BLUE}🦀 Installing Rust...${NC}"
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+        source ~/.cargo/env
+    fi
+}
+
+# Function to setup Python environment with all dependencies
+setup_python_environment() {
+    local project_dir=$1
+    
+    echo -e "${BLUE}🐍 Setting up Python environment...${NC}"
+    
+    cd "$project_dir"
+    
+    # Create virtual environment
+    python3 -m venv venv
+    source venv/bin/activate
+    
+    # Upgrade pip
+    pip install --upgrade pip wheel setuptools
+    
+    # Install core requirements
+    if [[ -f "config/requirements.txt" ]]; then
+        pip install -r config/requirements.txt
+    fi
+    
+    # Install additional packages for new components
+    pip install \
+        google-generativeai \
+        transformers \
+        torch \
+        sentence-transformers \
+        chromadb \
+        faiss-cpu \
+        peft \
+        accelerate \
+        bitsandbytes \
+        datasets \
+        psutil \
+        PyPDF2 \
+        python-docx \
+        python-pptx \
+        Pillow \
+        python-magic \
+        networkx \
+        scapy \
+        requests-oauthlib
+    
+    # Install PentestGPT dependencies
+    if [[ -d "PentestGPT" ]]; then
+        cd PentestGPT
+        pip install -e .
+        cd ..
+    fi
+    
+    # Install CAI dependencies
+    if [[ -d "CAI" ]]; then
+        cd CAI
+        pip install -e .
+        cd ..
+    fi
+    
+    echo -e "${GREEN}✅ Python environment setup complete${NC}"
+}
+
+# Function to create new directory structure
+create_directory_structure() {
+    local project_dir=$1
+    
+    echo -e "${BLUE}📁 Creating directory structure...${NC}"
+    
+    # Core directories
+    mkdir -p "$project_dir"/{core,agents,integrations,config,data,logs,temp}
+    
+    # Data directories  
+    mkdir -p "$project_dir/data"/{rag_data,documents,processed,pentest_sessions,pentest_reports,finetune_data,models}
+    
+    # Config directories
+    mkdir -p "$project_dir/config"/{vpn,templates,prompts}
+    
+    # Log directories
+    mkdir -p "$project_dir/logs"/{main,telegram,pentestgpt,rss,integration,health,gemini,deepseek,vpn}
+    
+    # Model storage
+    mkdir -p "$project_dir/data/models"/{local,deepseek,cache}
+    
+    # VPN configs
+    mkdir -p "$project_dir/config/vpn"/{openvpn,wireguard,custom}
+    
+    # Processing directories
+    mkdir -p "$project_dir/temp"/{uploads,processing,reports,analysis}
+    
+    # External tool directories  
+    mkdir -p "$project_dir/external"/{tools,wordlists,exploits}
+    
+    # Set permissions
+    if [[ "$project_dir" != "$(pwd)" ]]; then
+        sudo chown -R "$USER:$GROUP" "$project_dir"
+    fi
+    
+    chmod -R 755 "$project_dir"
+    chmod -R 700 "$project_dir/config/vpn"
+    
+    echo -e "${GREEN}✅ Directory structure created${NC}"
+}
+
+# Function to setup systemd services for new components
+setup_systemd_services() {
+    local project_dir=$1
+    
+    echo -e "${BLUE}⚙️ Setting up systemd services...${NC}"
+    
+    # Main agent service
+    sudo tee /etc/systemd/system/cybersec-main-agent.service > /dev/null << EOF
+[Unit]
+Description=Cybersecurity AI Agent - Main Service
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=$USER
+Group=$GROUP
+WorkingDirectory=$project_dir
+Environment=PATH=$project_dir/venv/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=$project_dir/venv/bin/python $project_dir/core/main.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+# Resource limits
+MemoryMax=4G
+MemoryHigh=3G
+TasksMax=100
+CPUQuota=70%
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+    # Task router service
+    sudo tee /etc/systemd/system/cybersec-task-router.service > /dev/null << EOF
+[Unit]
+Description=Cybersecurity AI Agent - Task Router
+After=network.target cybersec-main-agent.service
+Wants=network.target
+
+[Service]
+Type=simple
+User=$USER
+Group=$GROUP
+WorkingDirectory=$project_dir
+Environment=PATH=$project_dir/venv/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=$project_dir/venv/bin/python $project_dir/core/task_router.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+# Resource limits
+MemoryMax=2G
+MemoryHigh=1.5G
+TasksMax=50
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+    # Local LLM service
+    sudo tee /etc/systemd/system/cybersec-local-llm.service > /dev/null << EOF
+[Unit]
+Description=Cybersecurity AI Agent - Local LLM Server
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=$USER
+Group=$GROUP
+WorkingDirectory=$project_dir
+Environment=PATH=$project_dir/venv/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=$project_dir/venv/bin/python $project_dir/integrations/local_llm_server.py
+Restart=always
+RestartSec=15
+StandardOutput=journal
+StandardError=journal
+
+# Higher memory for LLM
+MemoryMax=6G
+MemoryHigh=5G
+TasksMax=20
+CPUQuota=80%
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+    # Health monitor service
+    sudo tee /etc/systemd/system/cybersec-health-monitor.service > /dev/null << EOF
+[Unit]
+Description=Cybersecurity AI Agent - Health Monitor
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=$USER
+Group=$GROUP
+WorkingDirectory=$project_dir
+Environment=PATH=$project_dir/venv/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=$project_dir/venv/bin/python $project_dir/agents/health_monitor.py
+Restart=always
+RestartSec=30
+StandardOutput=journal
+StandardError=journal
+
+# Minimal resources for monitoring
+MemoryMax=512M
+MemoryHigh=256M
+TasksMax=10
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+    sudo systemctl daemon-reload
+    
+    echo -e "${GREEN}✅ Systemd services configured${NC}"
+}
+
+# Function to setup configuration files
+setup_configuration() {
+    local project_dir=$1
+    
+    echo -e "${BLUE}⚙️ Setting up configuration...${NC}"
+    
+    cd "$project_dir"
+    
+    # Create main config if it doesn't exist
+    if [[ ! -f "core/config.yaml" ]]; then
+        cat > "core/config.yaml" << EOF
+# Cybersecurity AI Agent Platform Configuration
+# Updated for new structure with enhanced components
+
+# Core settings
+debug: false
+log_level: "INFO"
+max_concurrent_tasks: 10
+
+# API Configuration
+apis:
+  gemini:
+    model: "gemini-1.5-pro-latest"
+    api_key: "\${GEMINI_API_KEY}"
+    safety_settings: "none"  # For cybersecurity content
+  
+  telegram:
+    bot_token: "\${TELEGRAM_BOT_TOKEN}"
+    authorized_users: ["\${AUTHORIZED_USER_ID}"]
+    webhook_url: "\${WEBHOOK_URL}"
+
+# Local LLM Configuration
+local_llm:
+  enabled: true
+  model_name: "deepseek-ai/deepseek-coder-1.3b-instruct"
+  device: "auto"
+  max_memory_mb: 4096
+  use_quantization: true
+
+# Fine-tuning Configuration
+fine_tuning:
+  enabled: true
+  data_sources:
+    - "data/rag_data/**/*.json"
+    - "data/processed/**/*.json"
+    - "logs/**/*.log"
+  validation_split: 0.1
+  max_sequence_length: 512
+  lora_config:
+    r: 16
+    lora_alpha: 32
+    lora_dropout: 0.1
+
+# VPN Configuration
+vpn:
+  tryhackme:
+    type: "openvpn"
+    config_path: "config/vpn/tryhackme.ovpn"
+    auto_connect: false
+  hackthebox:
+    type: "openvpn" 
+    config_path: "config/vpn/hackthebox.ovpn"
+    auto_connect: false
+
+# CAI Configuration
+cai:
+  use_local_llm: true
+  rag_enabled: true
+  agent_types:
+    - "reconnaissance"
+    - "vulnerability_assessment"
+    - "code_analysis" 
+    - "threat_intelligence"
+
+# PentestGPT Configuration
+pentestgpt:
+  use_gemini_only: true
+  model: "gemini-1.5-pro-latest"
+  session_timeout: 3600
+  max_phases: 7
+
+# RAG Configuration
+rag:
+  embedding_model: "all-MiniLM-L6-v2"
+  vector_db: "chromadb"
+  chunk_size: 1000
+  chunk_overlap: 100
+  max_documents: 10000
+
+# Agent Configuration
+agents:
+  rss_fetcher:
+    enabled: true
+    update_interval: 3600
+    sources:
+      - "https://feeds.feedburner.com/eset/blog"
+      - "https://krebsonsecurity.com/feed/"
+      - "https://threatpost.com/feed/"
+  
+  file_parser:
+    enabled: true
+    supported_formats: ["pdf", "docx", "txt", "md", "html"]
+    max_file_size_mb: 50
+  
+  report_generator:
+    enabled: true
+    output_formats: ["json", "html", "pdf"]
+    template_dir: "config/templates"
+
+# Health Monitor Configuration
+health_monitor:
+  check_interval: 300
+  memory_threshold: 80
+  disk_threshold: 85
+  cpu_threshold: 90
+  alert_webhook: "\${HEALTH_ALERT_WEBHOOK}"
+
+# Security Settings
+security:
+  rate_limiting: true
+  request_timeout: 300
+  max_file_upload_mb: 100
+  allowed_ips: []  # Empty = allow all
+  
+# Logging Configuration
+logging:
+  level: "INFO"
+  max_file_size_mb: 100
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+EOF
+    fi
+    
+    # Create environment template
+    if [[ ! -f ".env.template" ]]; then
+        cat > ".env.template" << EOF
+# Cybersecurity AI Agent Platform Environment Variables
+# Copy this file to .env and fill in your values
+
+# API Keys
+GEMINI_API_KEY=your_gemini_api_key_here
+TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
+AUTHORIZED_USER_ID=your_telegram_user_id_here
+
+# Optional APIs
+OPENAI_API_KEY=optional_openai_key_for_fallback
+ANTHROPIC_API_KEY=optional_claude_key
+
+# Webhook Configuration
+WEBHOOK_URL=https://your-domain.com/webhook
+HEALTH_ALERT_WEBHOOK=https://your-monitoring-webhook.com
+
+# Database Configuration (if using external DB)
+DATABASE_URL=postgresql://user:pass@localhost/cybersec_agent
+
+# Security Configuration
+SECRET_KEY=your_secret_key_for_encryption
+ALLOWED_HOSTS=localhost,your-domain.com
+
+# Resource Configuration
+MAX_MEMORY_MB=4096
+MAX_CONCURRENT_TASKS=10
+
+# Development Settings
+DEBUG=false
+LOG_LEVEL=INFO
+EOF
+    fi
+    
+    # Copy template to .env if it doesn't exist
+    if [[ ! -f ".env" ]]; then
+        cp ".env.template" ".env"
+        echo -e "${YELLOW}📝 Created .env file - please configure your API keys${NC}"
+    fi
+    
+    echo -e "${GREEN}✅ Configuration setup complete${NC}"
+}
 
 # Final message
 echo
