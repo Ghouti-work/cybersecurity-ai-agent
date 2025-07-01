@@ -1,0 +1,19 @@
+{
+  "id": "d8f04cf9d772ccf7ce49f301fc82cd5f",
+  "title": "Critical Vulnerability in Anthropic's MCP Exposes Developer Machines to Remote Exploits",
+  "url": "https://thehackernews.com/2025/07/critical-vulnerability-in-anthropics.html",
+  "source": "The Hacker News",
+  "category": "news",
+  "published": "Tue, 01 Jul 2025 23:33:00 +0530",
+  "summary": "Critical Vulnerability in Anthropic's MCP Exposes Developer Machines to Remote Exploits. How 100+ Security Leaders Are Tackling AI RiskWiz's latest guide explores how organizations are approaching AI security today, where the biggest gaps exist, and what actions leading teams are taking t...",
+  "classification": "news",
+  "tags": [
+    "vulnerability",
+    "exploit",
+    "security"
+  ],
+  "security_score": 6,
+  "security_identifiers": [],
+  "content": "How 100+ Security Leaders Are Tackling AI RiskWiz's latest guide explores how organizations are approaching AI security today, where the biggest gaps exist, and what actions leading teams are taking to reduce risk.",
+  "processed_at": "2025-07-01T22:38:22.180208"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "2c31d7299a369584500e6eff9b7a9551",
+  "title": "KrebsOnSecurity Hit With Near-Record 6.3 Tbps DDoS",
+  "url": "https://krebsonsecurity.com/2025/05/krebsonsecurity-hit-with-near-record-6-3-tbps-ddos/",
+  "source": "KrebsOnSecurity",
+  "category": "news",
+  "published": "Tue, 20 May 2025 21:30:30 +0000",
+  "summary": "KrebsOnSecurity Hit With Near-Record 6.3 Tbps DDoS. May 20, 2025 46 Comments KrebsOnSecurity last week was hit by a near record distributed denial-of-service (DDoS) attack that clocked in at more than 6.3 terabits of data per second (a terabit is one t...",
+  "classification": "news",
+  "tags": [
+    "vulnerability",
+    "exploit",
+    "zero-day",
+    "security",
+    "attack"
+  ],
+  "security_score": 8,
+  "security_identifiers": [],
+  "content": "May 20, 2025 46 Comments KrebsOnSecurity last week was hit by a near record distributed denial-of-service (DDoS) attack that clocked in at more than 6.3 terabits of data per second (a terabit is one trillion bits of data). The brief attack appears to have been a test run for a massive new Internet of Things (IoT) botnet capable of launching crippling digital assaults that few web destinations can withstand. Read on for more about the botnet, the attack, and the apparent creator of this global menace. For reference, the 6.3 Tbps attack last week was ten times the size of the assault launched against this site in 2016 by the Mirai IoT botnet, which held KrebsOnSecurity offline for nearly four days. The 2016 assault was so large that Akamai \u2013 which was providing pro-bono DDoS protection for KrebsOnSecurity at the time \u2014 asked me to leave their service because the attack was causing problems for their paying customers. Since the Mirai attack, KrebsOnSecurity.com has been behind the protection of Project Shield, a free DDoS defense service that Google provides to websites offering news, human rights, and election-related content. Google Security Engineer Damian Menscher told KrebsOnSecurity the May 12 attack was the largest Google has ever handled. In terms of sheer size, it is second only to a very similar attack that Cloudflare mitigated and wrote about in April. After comparing notes with Cloudflare, Menscher said the botnet that launched both attacks bears the fingerprints of Aisuru, a digital siege machine that first surfaced less than a year ago. Menscher said the attack on KrebsOnSecurity lasted less than a minute, hurling large UDP data packets at random ports at a rate of approximately 585 million data packets per second. \u201cIt was the type of attack normally designed to overwhelm network links,\u201d Menscher said, referring to the throughput connections between and among various Internet service providers (ISPs). \u201cFor most companies, this size of attack would kill th",
+  "processed_at": "2025-07-01T22:37:49.671992"
+}

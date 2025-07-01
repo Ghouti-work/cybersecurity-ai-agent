@@ -16,7 +16,7 @@ from loguru import logger
 import yaml
 
 # Import our modules
-from pentestgpt_gemini import PentestGPT
+from pentestgpt_gemini import PentestGPTGemini
 from rag_embedder import RAGEmbedder
 from file_parser import FileParser
 from rss_fetcher import RSSFetcher
@@ -65,7 +65,7 @@ class TaskRouter:
             # In production, this would integrate with actual scanning tools
             
             if not self.pentestgpt:
-                self.pentestgpt = PentestGPT(self.config)
+                self.pentestgpt = PentestGPTGemini(self.config)
             
             # Create scan analysis query
             scan_query = f"Provide a comprehensive security scanning approach for target: {target}. Include reconnaissance, vulnerability assessment, and enumeration strategies."
@@ -145,7 +145,7 @@ class TaskRouter:
         
         try:
             if not self.pentestgpt:
-                self.pentestgpt = PentestGPT(self.config)
+                self.pentestgpt = PentestGPTGemini(self.config)
             
             # Get RAG context if available
             if self.rag_embedder and not context:

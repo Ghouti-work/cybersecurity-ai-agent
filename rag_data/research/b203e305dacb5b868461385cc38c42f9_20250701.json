@@ -1,0 +1,15 @@
+{
+  "id": "b203e305dacb5b868461385cc38c42f9",
+  "title": "Quick Password Brute Forcing Evolution Statistics, (Tue, Jun 24th)",
+  "url": "https://isc.sans.edu/diary/rss/32068",
+  "source": "SANS ISC Diary",
+  "category": "research",
+  "published": "Tue, 24 Jun 2025 18:36:36 GMT",
+  "summary": "Quick Password Brute Forcing Evolution Statistics, (Tue, Jun 24th). Quick Password Brute Forcing Evolution Statistics Published: 2025-06-24. Last Updated: 2025-06-24 18:36:36 UTC by Johannes Ullrich (Version: 1) 0 comment(s) We have collected SSH and telnet honeypot d...",
+  "classification": "research",
+  "tags": [],
+  "security_score": 3,
+  "security_identifiers": [],
+  "content": "Quick Password Brute Forcing Evolution Statistics Published: 2025-06-24. Last Updated: 2025-06-24 18:36:36 UTC by Johannes Ullrich (Version: 1) 0 comment(s) We have collected SSH and telnet honeypot data in various forms for about 10 years. Yesterday's diaries, and looking at some new usernames attempted earlier today, made me wonder if botnets just add new usernames or remove old ones from their lists. So I pulled some data from our database to test this hypothesis. I didn't spend a lot of time on this, and this could use a more detailed analysis. But here is a preliminary result: The average username/password combinations has increased, but not steadily. I only went back to 2018 as we have more consistent data starting in 2018. Scans began with about 10-20 username/password combinations attempted from each source IP, and more recently, bots attempted around 50 username/password combinations. The graph shows each source IP address's average username/password combination count. Next, I checked to see if the average password length had changed. Interestingly, there was a \"peak\" in password length around late 2018/early 2019. But otherwise, it has been very steady at around eight characters. Password brute forcing from bots like Mirai is not about password complexity. We have complex default passwords, like 3245gs5662d34, that are regularly in our top ten scanned passwords because this password is a well-known default password for a popular video camera system. Many default passwords are around eight characters long (like \"password\"), which explains the popularity of passwords around that length. --- Johannes B. Ullrich, Ph.D. Dean of Research, SANS.edu Twitter| Keywords: 0 comment(s)",
+  "processed_at": "2025-07-01T22:38:59.201490"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "3e4eef1104751cf44a4de39def170a74",
+  "title": "Scattered Spider Taps CFO Credentials in 'Scorched Earth' Attack",
+  "url": "https://www.darkreading.com/cloud-security/scattered-spider-cfo-scorched-earth-attack",
+  "source": "Dark Reading",
+  "category": "news",
+  "published": "Fri, 27 Jun 2025 17:11:23 GMT",
+  "summary": "Scattered Spider Taps CFO Credentials in 'Scorched Earth' Attack. In a recent intrusion, the notorious cybercriminal collective accessed CyberArk vaults and obtained more 1,400 secrets, subverted Azure, VMware, and Snowflake environments, and for the first known tim...",
+  "classification": "news",
+  "tags": [
+    "attack"
+  ],
+  "security_score": 4,
+  "security_identifiers": [],
+  "content": "In a recent intrusion, the notorious cybercriminal collective accessed CyberArk vaults and obtained more 1,400 secrets, subverted Azure, VMware, and Snowflake environments, and for the first known time, actively fought back against incident response teams.",
+  "processed_at": "2025-07-01T22:38:00.643156"
+}

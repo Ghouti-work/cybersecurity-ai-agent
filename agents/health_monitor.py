@@ -17,7 +17,7 @@ import yaml
 from loguru import logger
 from dotenv import load_dotenv
 
-from shared_utils import ConfigManager, LoggerManager, DirectoryManager, SystemMetrics
+from core.shared_utils import ConfigManager, LoggerManager, DirectoryManager, SystemMetrics
 
 class SystemHealthMonitor:
     """Comprehensive system health monitoring"""
@@ -89,7 +89,7 @@ class SystemHealthMonitor:
     async def _check_gemini_health(self) -> Dict[str, Any]:
         """Check Gemini API health"""
         try:
-            from shared_utils import GeminiClient
+            from core.shared_utils import GeminiClient
             gemini = GeminiClient()
             
             if not gemini.is_available:

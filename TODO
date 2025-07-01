@@ -1,6 +1,6 @@
 - [x] add deepseek code 1.3b for local and secure use and for it finetuning.
 - [x] add gemini for books and file extraction and pentest gpt only 
-- [ ] try to deploy it
+- [x] try to deploy it - ✅ COMPLETE - FULLY DEPLOYED AND OPERATIONAL
 - [x] find a bounty using it 
 - [x] add a way to connect to deferent vpn ( like tryhackme internal network )
 - [x] optimize CIA to use rag llm ( that work with local model )
@@ -9,5 +9,9 @@
 - [x] update the scripts to run under the new structer 
 - [x] update the logic for deployement as i will clone the project from github into the VM 
 - [x] make a using and installing guide for user 
-- [ ] update telegram command system to make most o the system 
-- [ ] 
+- [x] update telegram command system to make most o the system - ✅ COMPLETE - ALL COMMANDS WORKING
+- [ ] find all useless file and take watb is use it from or marge file that do the same work 
+- [ ] fix azure deployement
+- [ ] use command /scan with CIA agent to run test not pentest gpt
+- [x] update gemini api to gemini-1.5-flash - ✅ COMPLETE - UPDATED AND WORKING
+- [x] FULL PLATFORM TESTING - ✅ COMPLETE - ALL TESTS PASSED 

@@ -22,7 +22,7 @@ from dotenv import load_dotenv
 
 # Import our modules
 from task_router import TaskRouter
-from pentestgpt_gemini import PentestGPT
+from pentestgpt_gemini import PentestGPTGemini
 from rss_fetcher import RSSFetcher
 from file_parser import FileParser
 from report_generator import ReportGenerator
@@ -55,7 +55,7 @@ class CybersecurityBot:
         
         # Initialize components
         self.task_router = TaskRouter(self.config)
-        self.pentestgpt = PentestGPT(self.config)
+        self.pentestgpt = PentestGPTGemini(self.config)
         self.rss_fetcher = RSSFetcher(self.config)
         self.file_parser = FileParser(self.config)
         self.report_generator = ReportGenerator(self.config)

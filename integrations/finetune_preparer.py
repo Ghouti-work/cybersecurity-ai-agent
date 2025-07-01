@@ -26,7 +26,7 @@ class FineTunePreparer:
         self.validation_split = self.finetune_config.get('validation_split', 0.1)
         self.max_sequence_length = self.finetune_config.get('max_sequence_length', 2048)
         
-        self.logger = LoggerManager.setup_logger('finetune')
+        LoggerManager.setup_logger('finetune')
         
         # Setup output directories
         DirectoryManager.ensure_directory("finetune_data")
@@ -35,11 +35,11 @@ class FineTunePreparer:
         
         self.output_dir = Path("finetune_data")
         
-        self.logger.info("🧪 Fine-tune Preparer initialized")
+        logger.info("🧪 Fine-tune Preparer initialized")
 
     async def prepare_training_data(self) -> Dict[str, Any]:
         """Prepare comprehensive training data from all sources"""
-        self.logger.info("Starting fine-tuning data preparation...")
+        logger.info("Starting fine-tuning data preparation...")
         
         try:
             # Collect data from all sources
@@ -70,16 +70,16 @@ class FineTunePreparer:
                 'timestamp': datetime.now().isoformat()
             }
             
-            self.logger.info(f"Fine-tuning preparation complete: {len(training_samples)} total samples")
+            logger.info(f"Fine-tuning preparation complete: {len(training_samples)} total samples")
             return result
             
         except Exception as e:
-            self.logger.error(f"Fine-tuning preparation failed: {e}")
+            logger.error(f"Fine-tuning preparation failed: {e}")
             raise
 
     async def _collect_raw_data(self) -> List[Dict[str, Any]]:
         """Collect raw data from all configured sources"""
-        self.logger.info("Collecting raw data from sources...")
+        logger.info("Collecting raw data from sources...")
         
         raw_data = []
         
@@ -87,7 +87,7 @@ class FineTunePreparer:
             try:
                 # Expand glob patterns
                 source_files = list(Path(".").glob(source_pattern))
-                self.logger.info(f"Found {len(source_files)} files matching pattern: {source_pattern}")
+                logger.info(f"Found {len(source_files)} files matching pattern: {source_pattern}")
                 
                 for file_path in source_files:
                     if file_path.is_file():
@@ -95,10 +95,10 @@ class FineTunePreparer:
                         raw_data.extend(file_data)
                         
             except Exception as e:
-                self.logger.error(f"Failed to process source {source_pattern}: {e}")
+                logger.error(f"Failed to process source {source_pattern}: {e}")
                 continue
         
-        self.logger.info(f"Collected {len(raw_data)} raw data samples")
+        logger.info(f"Collected {len(raw_data)} raw data samples")
         return raw_data
 
     async def _load_source_file(self, file_path: Path) -> List[Dict[str, Any]]:
@@ -111,11 +111,11 @@ class FineTunePreparer:
             elif file_path.suffix == '.log':
                 return await self._load_log_file(file_path)
             else:
-                self.logger.warning(f"Unsupported file type: {file_path}")
+                logger.warning(f"Unsupported file type: {file_path}")
                 return []
                 
         except Exception as e:
-            self.logger.error(f"Failed to load file {file_path}: {e}")
+            logger.error(f"Failed to load file {file_path}: {e}")
             return []
 
     async def _load_json_file(self, file_path: Path) -> List[Dict[str, Any]]:
@@ -133,7 +133,7 @@ class FineTunePreparer:
                 return []
                 
         except Exception as e:
-            self.logger.error(f"Failed to load JSON file {file_path}: {e}")
+            logger.error(f"Failed to load JSON file {file_path}: {e}")
             return []
 
     async def _load_markdown_file(self, file_path: Path) -> List[Dict[str, Any]]:
@@ -166,7 +166,7 @@ class FineTunePreparer:
             return samples
             
         except Exception as e:
-            self.logger.error(f"Failed to load markdown file {file_path}: {e}")
+            logger.error(f"Failed to load markdown file {file_path}: {e}")
             return []
 
     async def _load_log_file(self, file_path: Path) -> List[Dict[str, Any]]:
@@ -188,7 +188,7 @@ class FineTunePreparer:
             return samples
             
         except Exception as e:
-            self.logger.error(f"Failed to load log file {file_path}: {e}")
+            logger.error(f"Failed to load log file {file_path}: {e}")
             return []
 
     async def _extract_pentestgpt_data(self, content: str, file_path: Path) -> List[Dict[str, Any]]:
@@ -217,7 +217,7 @@ class FineTunePreparer:
             return samples
             
         except Exception as e:
-            self.logger.error(f"Failed to extract PentestGPT data: {e}")
+            logger.error(f"Failed to extract PentestGPT data: {e}")
             return []
 
     async def _extract_rss_data(self, content: str, file_path: Path) -> List[Dict[str, Any]]:
@@ -243,7 +243,7 @@ class FineTunePreparer:
             return samples
             
         except Exception as e:
-            self.logger.error(f"Failed to extract RSS data: {e}")
+            logger.error(f"Failed to extract RSS data: {e}")
             return []
 
     async def _process_to_training_format(self, raw_data: List[Dict[str, Any]]) -> List[Dict[str, str]]:

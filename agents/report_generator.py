@@ -15,12 +15,12 @@ from loguru import logger
 import yaml
 from jinja2 import Template
 
-from shared_utils import ConfigManager, LoggerManager, DirectoryManager, SystemMetrics
+from core.shared_utils import ConfigManager, LoggerManager, DirectoryManager, SystemMetrics
 
 class ReportGenerator:
     def __init__(self, config: Dict[str, Any] = None):
         self.config = config or ConfigManager.get_instance().config
-        self.logger = LoggerManager.setup_logger('reports')
+        LoggerManager.setup_logger('reports')
         
         # Setup report directories
         DirectoryManager.ensure_directory("reports")
@@ -30,11 +30,11 @@ class ReportGenerator:
         
         self.reports_dir = Path("reports")
         
-        self.logger.info("📊 Report Generator initialized")
+        logger.info("📊 Report Generator initialized")
 
     async def generate_report(self, report_type: str = "latest") -> Dict[str, Any]:
         """Generate a comprehensive security report"""
-        self.logger.info(f"Generating {report_type} report...")
+        logger.info(f"Generating {report_type} report...")
         
         try:
             if report_type == "daily":
@@ -49,7 +49,7 @@ class ReportGenerator:
                 return await self._generate_custom_report(report_type)
                 
         except Exception as e:
-            self.logger.error(f"Report generation failed: {e}")
+            logger.error(f"Report generation failed: {e}")
             raise
 
     async def _generate_daily_report(self) -> Dict[str, Any]:
@@ -77,7 +77,7 @@ class ReportGenerator:
             'generated_at': datetime.now().isoformat()
         }
         
-        self.logger.info(f"Daily report generated: {filename}")
+        logger.info(f"Daily report generated: {filename}")
         return result
 
     async def _generate_weekly_report(self) -> Dict[str, Any]:
@@ -106,7 +106,7 @@ class ReportGenerator:
             'generated_at': datetime.now().isoformat()
         }
         
-        self.logger.info(f"Weekly report generated: {filename}")
+        logger.info(f"Weekly report generated: {filename}")
         return result
 
     async def _generate_latest_activity_report(self) -> Dict[str, Any]:
@@ -133,7 +133,7 @@ class ReportGenerator:
             'generated_at': datetime.now().isoformat()
         }
         
-        self.logger.info(f"Latest activity report generated: {filename}")
+        logger.info(f"Latest activity report generated: {filename}")
         return result
 
     async def _generate_summary_report(self) -> Dict[str, Any]:
@@ -160,7 +160,7 @@ class ReportGenerator:
             'generated_at': datetime.now().isoformat()
         }
         
-        self.logger.info(f"Summary report generated: {filename}")
+        logger.info(f"Summary report generated: {filename}")
         return result
 
     async def _collect_daily_data(self, date) -> Dict[str, Any]:
@@ -191,7 +191,7 @@ class ReportGenerator:
             data['system_events'] = await self._get_system_events_by_date(date)
             
         except Exception as e:
-            self.logger.error(f"Failed to collect daily data: {e}")
+            logger.error(f"Failed to collect daily data: {e}")
         
         return data
 
@@ -228,7 +228,7 @@ class ReportGenerator:
             data['system_performance'] = await self._get_weekly_performance_metrics()
             
         except Exception as e:
-            self.logger.error(f"Failed to collect weekly data: {e}")
+            logger.error(f"Failed to collect weekly data: {e}")
         
         return data
 
@@ -263,7 +263,7 @@ class ReportGenerator:
             data['active_threats'] = await self._get_active_threats()
             
         except Exception as e:
-            self.logger.error(f"Failed to collect latest activity data: {e}")
+            logger.error(f"Failed to collect latest activity data: {e}")
         
         return data
 
@@ -298,7 +298,7 @@ class ReportGenerator:
             data['recommendations'] = await self._generate_recommendations()
             
         except Exception as e:
-            self.logger.error(f"Failed to collect summary data: {e}")
+            logger.error(f"Failed to collect summary data: {e}")
         
         return data
 
@@ -663,7 +663,7 @@ This comprehensive report provides an analysis of the cybersecurity AI agent's p
                         except Exception:
                             continue
         except Exception as e:
-            self.logger.error(f"Failed to get RSS articles: {e}")
+            logger.error(f"Failed to get RSS articles: {e}")
         
         return articles
 
@@ -682,7 +682,7 @@ This comprehensive report provides an analysis of the cybersecurity AI agent's p
                     except Exception:
                         continue
         except Exception as e:
-            self.logger.error(f"Failed to get scan results: {e}")
+            logger.error(f"Failed to get scan results: {e}")
         
         return scans
 
@@ -701,7 +701,7 @@ This comprehensive report provides an analysis of the cybersecurity AI agent's p
                     except Exception:
                         continue
         except Exception as e:
-            self.logger.error(f"Failed to get PentestGPT analyses: {e}")
+            logger.error(f"Failed to get PentestGPT analyses: {e}")
         
         return analyses
 
@@ -725,7 +725,7 @@ This comprehensive report provides an analysis of the cybersecurity AI agent's p
                         except Exception:
                             continue
         except Exception as e:
-            self.logger.error(f"Failed to get processed files: {e}")
+            logger.error(f"Failed to get processed files: {e}")
         
         return files
 

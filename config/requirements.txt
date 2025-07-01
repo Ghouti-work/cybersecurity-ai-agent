@@ -1,3 +1,4 @@
+# filepath: /home/h7ck3r/Notes/code/cybersecurity-ai-agent/config/requirements.txt
 # Core dependencies
 python-telegram-bot==20.8
 loguru==0.7.2

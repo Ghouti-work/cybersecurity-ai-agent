@@ -1,0 +1,17 @@
+{
+  "id": "52101f08048fcea13a9fe85474a63b0e",
+  "title": "Citrix Bleed 2 Flaw Enables Token Theft; SAP GUI Flaws Risk Sensitive Data Exposure",
+  "url": "https://thehackernews.com/2025/06/citrix-bleed-2-flaw-enables-token-theft.html",
+  "source": "The Hacker News",
+  "category": "news",
+  "published": "Wed, 25 Jun 2025 19:07:00 +0530",
+  "summary": "Citrix Bleed 2 Flaw Enables Token Theft; SAP GUI Flaws Risk Sensitive Data Exposure. How 100+ Security Leaders Are Tackling AI RiskWiz's latest guide explores how organizations are approaching AI security today, where the biggest gaps exist, and what actions leading teams are taking t...",
+  "classification": "news",
+  "tags": [
+    "security"
+  ],
+  "security_score": 4,
+  "security_identifiers": [],
+  "content": "How 100+ Security Leaders Are Tackling AI RiskWiz's latest guide explores how organizations are approaching AI security today, where the biggest gaps exist, and what actions leading teams are taking to reduce risk.",
+  "processed_at": "2025-07-01T22:38:38.877507"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "60e265add89d00a3a29f82dea30af310",
+  "title": "Hundreds of MCP Servers Expose AI Models to Abuse, RCE",
+  "url": "https://www.darkreading.com/cloud-security/hundreds-mcp-servers-ai-models-abuse-rce",
+  "source": "Dark Reading",
+  "category": "news",
+  "published": "Wed, 25 Jun 2025 15:23:04 GMT",
+  "summary": "Hundreds of MCP Servers Expose AI Models to Abuse, RCE. The servers that connect AI with real-world data are occasionally wide-open channels for cyberattacks....",
+  "classification": "news",
+  "tags": [
+    "attack"
+  ],
+  "security_score": 4,
+  "security_identifiers": [],
+  "content": "The servers that connect AI with real-world data are occasionally wide-open channels for cyberattacks.",
+  "processed_at": "2025-07-01T22:38:09.076037"
+}

@@ -35,7 +35,8 @@ class ConfigManager:
         load_dotenv()
         
         try:
-            with open('config.yaml', 'r') as f:
+            config_path = Path(__file__).parent / 'config.yaml'
+            with open(config_path, 'r') as f:
                 self._config = yaml.safe_load(f)
             logger.info("✅ Configuration loaded successfully")
         except FileNotFoundError:

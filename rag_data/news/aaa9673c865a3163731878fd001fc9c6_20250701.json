@@ -1,0 +1,22 @@
+{
+  "id": "aaa9673c865a3163731878fd001fc9c6",
+  "title": "Chrome Zero-Day CVE-2025-6554 Under Active Attack \u2014 Google Issues Security Update",
+  "url": "https://thehackernews.com/2025/07/google-patches-critical-zero-day-flaw.html",
+  "source": "The Hacker News",
+  "category": "news",
+  "published": "Tue, 01 Jul 2025 14:25:00 +0530",
+  "summary": "Chrome Zero-Day CVE-2025-6554 Under Active Attack \u2014 Google Issues Security Update. How 100+ Security Leaders Are Tackling AI RiskWiz's latest guide explores how organizations are approaching AI security today, where the biggest gaps exist, and what actions leading teams are taking t...",
+  "classification": "news",
+  "tags": [
+    "zero-day",
+    "CVE",
+    "security",
+    "attack"
+  ],
+  "security_score": 7,
+  "security_identifiers": [
+    "CVE-2025-6554"
+  ],
+  "content": "How 100+ Security Leaders Are Tackling AI RiskWiz's latest guide explores how organizations are approaching AI security today, where the biggest gaps exist, and what actions leading teams are taking to reduce risk.",
+  "processed_at": "2025-07-01T22:38:23.349273"
+}

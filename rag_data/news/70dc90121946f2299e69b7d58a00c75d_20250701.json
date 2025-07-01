@@ -1,0 +1,18 @@
+{
+  "id": "70dc90121946f2299e69b7d58a00c75d",
+  "title": "APT28 Uses Signal Chat to Deploy BEARDSHELL Malware and COVENANT in Ukraine",
+  "url": "https://thehackernews.com/2025/06/apt28-uses-signal-chat-to-deploy.html",
+  "source": "The Hacker News",
+  "category": "news",
+  "published": "Tue, 24 Jun 2025 14:36:00 +0530",
+  "summary": "APT28 Uses Signal Chat to Deploy BEARDSHELL Malware and COVENANT in Ukraine. How 100+ Security Leaders Are Tackling AI RiskWiz's latest guide explores how organizations are approaching AI security today, where the biggest gaps exist, and what actions leading teams are taking t...",
+  "classification": "news",
+  "tags": [
+    "malware",
+    "security"
+  ],
+  "security_score": 5,
+  "security_identifiers": [],
+  "content": "How 100+ Security Leaders Are Tackling AI RiskWiz's latest guide explores how organizations are approaching AI security today, where the biggest gaps exist, and what actions leading teams are taking to reduce risk.",
+  "processed_at": "2025-07-01T22:38:46.980730"
+}

@@ -1,0 +1,24 @@
+# Complete requirements file
+google-generativeai
+openai
+anthropic
+telegram
+python-telegram-bot
+feedparser
+PyPDF2
+python-docx
+openpyxl
+markdown
+python-dotenv
+pydantic
+uvicorn
+typer
+chromadb
+sentence-transformers
+aiofiles
+requests
+psutil
+sqlalchemy
+alembic
+pytest
+pytest-asyncio

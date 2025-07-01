@@ -1,0 +1,22 @@
+{
+  "id": "56a6a54cddd698df1ec3ef418ce67777",
+  "title": "Citrix Releases Emergency Patches for Actively Exploited CVE-2025-6543 in NetScaler ADC",
+  "url": "https://thehackernews.com/2025/06/citrix-releases-emergency-patches-for.html",
+  "source": "The Hacker News",
+  "category": "news",
+  "published": "Wed, 25 Jun 2025 20:21:00 +0530",
+  "summary": "Citrix Releases Emergency Patches for Actively Exploited CVE-2025-6543 in NetScaler ADC. How 100+ Security Leaders Are Tackling AI RiskWiz's latest guide explores how organizations are approaching AI security today, where the biggest gaps exist, and what actions leading teams are taking t...",
+  "classification": "news",
+  "tags": [
+    "exploit",
+    "CVE",
+    "patch",
+    "security"
+  ],
+  "security_score": 7,
+  "security_identifiers": [
+    "CVE-2025-6543"
+  ],
+  "content": "How 100+ Security Leaders Are Tackling AI RiskWiz's latest guide explores how organizations are approaching AI security today, where the biggest gaps exist, and what actions leading teams are taking to reduce risk.",
+  "processed_at": "2025-07-01T22:38:38.275388"
+}

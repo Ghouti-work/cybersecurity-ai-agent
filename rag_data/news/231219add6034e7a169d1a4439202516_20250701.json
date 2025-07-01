@@ -1,0 +1,28 @@
+{
+  "id": "231219add6034e7a169d1a4439202516",
+  "title": "Patch Tuesday, May 2025 Edition",
+  "url": "https://krebsonsecurity.com/2025/05/patch-tuesday-may-2025-edition/",
+  "source": "KrebsOnSecurity",
+  "category": "news",
+  "published": "Wed, 14 May 2025 11:57:48 +0000",
+  "summary": "Patch Tuesday, May 2025 Edition. May 14, 2025 25 Comments Microsoft on Tuesday released software updates to fix at least 70 vulnerabilities in Windows and related products, including five zero-day flaws that are already seeing active...",
+  "classification": "news",
+  "tags": [
+    "vulnerability",
+    "exploit",
+    "ransomware",
+    "phishing",
+    "zero-day"
+  ],
+  "security_score": 10,
+  "security_identifiers": [
+    "CVE-2025-30397",
+    "CVE-2025-32709",
+    "CVE-2025-30400",
+    "CVE-2024-30051",
+    "CVE-2025-32706",
+    "CVE-2025-32701"
+  ],
+  "content": "May 14, 2025 25 Comments Microsoft on Tuesday released software updates to fix at least 70 vulnerabilities in Windows and related products, including five zero-day flaws that are already seeing active exploitation. Adding to the sense of urgency with this month\u2019s patch batch from Redmond are fixes for two other weaknesses that now have public proof-of-concept exploits available. Microsoft and several security firms have disclosed that attackers are exploiting a pair of bugs in the Windows Common Log File System (CLFS) driver that allow attackers to elevate their privileges on a vulnerable device. The Windows CLFS is a critical Windows component responsible for logging services, and is widely used by Windows system services and third-party applications for logging. Tracked as CVE-2025-32701 & CVE-2025-32706, these flaws are present in all supported versions of Windows 10 and 11, as well as their server versions. Kev Breen, senior director of threat research at Immersive Labs, said privilege escalation bugs assume an attacker already has initial access to a compromised host, typically through a phishing attack or by using stolen credentials. But if that access already exists, Breen said, attackers can gain access to the much more powerful Windows SYSTEM account, which can disable security tooling or even gain domain administration level permissions using credential harvesting tools. \u201cThe patch notes don\u2019t provide technical details on how this is being exploited, and no Indicators of Compromise (IOCs) are shared, meaning the only mitigation security teams have is to apply these patches immediately,\u201d he said. \u201cThe average time from public disclosure to exploitation at scale is less than five days, with threat actors, ransomware groups, and affiliates quick to leverage these vulnerabilities.\u201d Two other zero-days patched by Microsoft today also were elevation of privilege flaws: CVE-2025-32709, which concerns afd.sys, the Windows Ancillary Function Driver that enables Win",
+  "processed_at": "2025-07-01T22:37:51.216707"
+}

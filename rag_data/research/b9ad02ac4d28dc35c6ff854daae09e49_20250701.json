@@ -1,0 +1,15 @@
+{
+  "id": "b9ad02ac4d28dc35c6ff854daae09e49",
+  "title": "&#x26;#xa;ADS &#x26; Python Tools, (Sat, Jun 21st)",
+  "url": "https://isc.sans.edu/diary/rss/32058",
+  "source": "SANS ISC Diary",
+  "category": "research",
+  "published": "Sat, 21 Jun 2025 10:13:41 GMT",
+  "summary": "&#x26;#xa;ADS &#x26; Python Tools, (Sat, Jun 21st). ADS & Python Tools Published: 2025-06-21. Last Updated: 2025-06-21 10:13:41 UTC by Didier Stevens (Version: 1) 0 comment(s) Ehsaan Mavani talks about Alternate Data Streams (ADS) in diary entry \"Alter...",
+  "classification": "research",
+  "tags": [],
+  "security_score": 3,
+  "security_identifiers": [],
+  "content": "ADS & Python Tools Published: 2025-06-21. Last Updated: 2025-06-21 10:13:41 UTC by Didier Stevens (Version: 1) 0 comment(s) Ehsaan Mavani talks about Alternate Data Streams (ADS) in diary entry \"Alternate Data Streams ? Adversary Defense Evasion and Detection [Guest Diary]\". I'm taking this as an opportunity to remind you that Python tools on Windows and an NTFS disk, can access alternate data streams. Like my tool cut-bytes.py, here I use it to show the content of the Mark-of-the-Web stored inside the Zone.Identifier ADS: You just need to type a colon (:) followed by the ADS name after the filename. I didn't have to code this in Python for Windows, it's default behavior. I did code ADS features in my FileScanner tool. It's not written in Python, but in C for Windows, and I coded features to enumerate and scan alternate data streams. If you give it a file to scan, it will scan the file content, and also the content of all of its alternate data streams. Like with this download with a MotW: And if you give it a folder or a drive to scan, it will also enumerate and scan all alternate data streams. Didier Stevens Senior handler blog.DidierStevens.com Keywords: 0 comment(s)",
+  "processed_at": "2025-07-01T22:39:06.097890"
+}

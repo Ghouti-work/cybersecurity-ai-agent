@@ -1,0 +1,19 @@
+{
+  "id": "0784a74e33088dcd77fac5f781e7d73d",
+  "title": "Pakistan Arrests 21 in \u2018Heartsender\u2019 Malware Service",
+  "url": "https://krebsonsecurity.com/2025/05/pakistan-arrests-21-in-heartsender-malware-service/",
+  "source": "KrebsOnSecurity",
+  "category": "news",
+  "published": "Wed, 28 May 2025 17:41:47 +0000",
+  "summary": "Pakistan Arrests 21 in \u2018Heartsender\u2019 Malware Service. May 28, 2025 12 Comments Authorities in Pakistan have arrested 21 individuals accused of operating \u201cHeartsender,\u201d a once popular spam and malware dissemination service that operated for more than a de...",
+  "classification": "news",
+  "tags": [
+    "malware",
+    "phishing",
+    "security"
+  ],
+  "security_score": 6,
+  "security_identifiers": [],
+  "content": "May 28, 2025 12 Comments Authorities in Pakistan have arrested 21 individuals accused of operating \u201cHeartsender,\u201d a once popular spam and malware dissemination service that operated for more than a decade. The main clientele for HeartSender were organized crime groups that tried to trick victim companies into making payments to a third party, and its alleged proprietors were publicly identified by KrebsOnSecurity in 2021 after they inadvertently infected their computers with malware. Some of the core developers and sellers of Heartsender posing at a work outing in 2021. WeCodeSolutions boss Rameez Shahzad (in sunglasses) is in the center of this group photo, which was posted by employee Burhan Ul Haq, pictured just to the right of Shahzad. A report from the Pakistani media outlet Dawn states that authorities there arrested 21 people alleged to have operated Heartsender, a spam delivery service whose homepage openly advertised phishing kits targeting users of various Internet companies, including Microsoft 365, Yahoo, AOL, Intuit, iCloud and ID.me. Pakistan\u2019s National Cyber Crime Investigation Agency (NCCIA) reportedly conducted raids in Lahore\u2019s Bahria Town and Multan on May 15 and 16. The NCCIA told reporters the group\u2019s tools were connected to more than $50m in losses in the United States alone, with European authorities investigating 63 additional cases. \u201cThis wasn\u2019t just a scam operation \u2013 it was essentially a cybercrime university that empowered fraudsters globally,\u201d NCCIA Director Abdul Ghaffar said at a press briefing. In January 2025, the FBI and the Dutch Police seized the technical infrastructure for the cybercrime service, which was marketed under the brands Heartsender, Fudpage and Fudtools (and many other \u201cfud\u201d variations). The \u201cfud\u201d bit stands for \u201cFully Un-Detectable,\u201d and it refers to cybercrime resources that will evade detection by security tools like antivirus software or anti-spam appliances. The FBI says transnational organized crime groups that",
+  "processed_at": "2025-07-01T22:37:48.412766"
+}

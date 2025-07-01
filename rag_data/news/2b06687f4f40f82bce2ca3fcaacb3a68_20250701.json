@@ -1,0 +1,17 @@
+{
+  "id": "2b06687f4f40f82bce2ca3fcaacb3a68",
+  "title": "Attackers Use Docker APIs, Tor Anonymity in Stealthy Crypto Heist",
+  "url": "https://www.darkreading.com/cloud-security/attackers-docker-apis-tor-anonymity-crypto-heist",
+  "source": "Dark Reading",
+  "category": "news",
+  "published": "Mon, 23 Jun 2025 15:13:06 GMT",
+  "summary": "Attackers Use Docker APIs, Tor Anonymity in Stealthy Crypto Heist. The attack is similar to previous campaigns by an actor called Commando Cat to use misconfigured APIs to compromise containers and deploy cryptocurrency miners....",
+  "classification": "news",
+  "tags": [
+    "attack"
+  ],
+  "security_score": 4,
+  "security_identifiers": [],
+  "content": "The attack is similar to previous campaigns by an actor called Commando Cat to use misconfigured APIs to compromise containers and deploy cryptocurrency miners.",
+  "processed_at": "2025-07-01T22:38:17.663015"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "1f29fd250ce35f61466cdedf40b0e31a",
+  "title": "Proxy Services Feast on Ukraine\u2019s IP Address Exodus",
+  "url": "https://krebsonsecurity.com/2025/06/proxy-services-feast-on-ukraines-ip-address-exodus/",
+  "source": "KrebsOnSecurity",
+  "category": "news",
+  "published": "Thu, 05 Jun 2025 22:44:33 +0000",
+  "summary": "Proxy Services Feast on Ukraine\u2019s IP Address Exodus. June 5, 2025 16 Comments Image: Mark Rademaker, via Shutterstock. Ukraine has seen nearly one-fifth of its Internet space come under Russian control or sold to Internet address brokers since February ...",
+  "classification": "news",
+  "tags": [],
+  "security_score": 3,
+  "security_identifiers": [],
+  "content": "June 5, 2025 16 Comments Image: Mark Rademaker, via Shutterstock. Ukraine has seen nearly one-fifth of its Internet space come under Russian control or sold to Internet address brokers since February 2022, a new study finds. The analysis indicates large chunks of Ukrainian Internet address space are now in the hands of shadowy proxy and anonymity services that are nested at some of America\u2019s largest Internet service providers (ISPs). The findings come in a report examining how the Russian invasion has affected Ukraine\u2019s domestic supply of Internet Protocol Version 4 (IPv4) addresses. Researchers at Kentik, a company that measures the performance of Internet networks, found that while a majority of ISPs in Ukraine haven\u2019t changed their infrastructure much since the war began in 2022, others have resorted to selling swathes of their valuable IPv4 address space just to keep the lights on. For example, Ukraine\u2019s incumbent ISP Ukrtelecom is now routing just 29 percent of the IPv4 address ranges that the company controlled at the start of the war, Kentik found. Although much of that former IP space remains dormant, Ukrtelecom told Kentik\u2019s Doug Madory they were forced to sell many of their address blocks \u201cto secure financial stability and continue delivering essential services.\u201d \u201cLeasing out a portion of our IPv4 resources allowed us to mitigate some of the extraordinary challenges we have been facing since the full-scale invasion began,\u201d Ukrtelecom told Madory. Madory found much of the IPv4 space previously allocated to Ukrtelecom is now scattered to more than 100 providers globally, particularly at three large American ISPs \u2014 Amazon (AS16509), AT&T (AS7018), and Cogent (AS174). Another Ukrainian Internet provider \u2014 LVS (AS43310) \u2014 in 2022 was routing approximately 6,000 IPv4 addresses across the nation. Kentik learned that by November 2022, much of that address space had been parceled out to over a dozen different locations, with the bulk of it being announced at AT&T. ",
+  "processed_at": "2025-07-01T22:37:47.229636"
+}

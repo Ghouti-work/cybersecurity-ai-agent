@@ -1,0 +1,21 @@
+{
+  "id": "e176f1d54cb016cb1ff59b862d6e9503",
+  "title": "Scans for Ichano AtHome IP Cameras, (Mon, Jun 23rd)",
+  "url": "https://isc.sans.edu/diary/rss/32062",
+  "source": "SANS ISC Diary",
+  "category": "research",
+  "published": "Mon, 23 Jun 2025 15:33:55 GMT",
+  "summary": "Scans for Ichano AtHome IP Cameras, (Mon, Jun 23rd). Scans for Ichano AtHome IP Cameras Published: 2025-06-23. Last Updated: 2025-06-23 15:33:55 UTC by Johannes Ullrich (Version: 1) 0 comment(s) Ichano's \"AtHome Camera\" is a bit of a different approach ...",
+  "classification": "research",
+  "tags": [
+    "vulnerability",
+    "exploit",
+    "CVE"
+  ],
+  "security_score": 6,
+  "security_identifiers": [
+    "CVE-2017-17761"
+  ],
+  "content": "Scans for Ichano AtHome IP Cameras Published: 2025-06-23. Last Updated: 2025-06-23 15:33:55 UTC by Johannes Ullrich (Version: 1) 0 comment(s) Ichano's \"AtHome Camera\" is a bit of a different approach to home surveillance cameras [1]. Instead of a hardware camera solution, this product is a software solution that turns existing devices like computers and tablets into webcams. The software implements features we know from similar IP camera devices. It enabled streaming of images and remote access to features like motion detection and alerting. Back in 2017, a hard-coded username and password vulnerability was identified in the product (CVE-2017-17761) [2]. It is kind of odd that it took so long for this username to show up in scans against our honeypots, but I noticed it on June 18th. The password attempted is \"123\", as outlined in CVE-2017-17761. It is not clear if this issue was ever fixed by Ichano. IP addresses scanning for this username and password combination are also scanning for other typical \"IoT\" default usernames and passwords, with usernames like \"root\", \"admin\", \"gast\", \"gpon\" and others. Some of the IP addresses actively scanning: 104.155.29.102, Google Cloud, US 110.233.163.181, Biglobe, Japan 110.233.163.180, Biglobe, Japan 123.210.143.28, Telstra, Australia 139.135.69.203, DITO TELECOMMUNITY, Philippines 153.237.47.226, Open Computer Network, Japan 178.242.192.55, TURKCELL, Turkey 185.248.13.240, ATLANTISNET, Turkey 220.107.154.153 Open Computer Network, Japan Nothing specifically special or exciting about these IPs as far as I can tell. [1] https://www.ichano.com/ [2] https://www.exploit-db.com/exploits/44048 --- Johannes B. Ullrich, Ph.D. , Dean of Research, SANS.edu Twitter| Keywords: 0 comment(s)",
+  "processed_at": "2025-07-01T22:39:02.412573"
+}

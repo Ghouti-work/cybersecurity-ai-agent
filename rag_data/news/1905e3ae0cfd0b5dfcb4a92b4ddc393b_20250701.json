@@ -1,0 +1,18 @@
+{
+  "id": "1905e3ae0cfd0b5dfcb4a92b4ddc393b",
+  "title": "Hackers Post Dozens of Malicious Copycat Repos to GitHub",
+  "url": "https://www.darkreading.com/threat-intelligence/dozens-malicious-copycat-repos-github",
+  "source": "Dark Reading",
+  "category": "news",
+  "published": "Fri, 20 Jun 2025 20:30:31 GMT",
+  "summary": "Hackers Post Dozens of Malicious Copycat Repos to GitHub. As package registries find better ways to combat cyberattacks, threat actors are finding other methods for spreading their malware to developers....",
+  "classification": "news",
+  "tags": [
+    "malware",
+    "attack"
+  ],
+  "security_score": 5,
+  "security_identifiers": [],
+  "content": "As package registries find better ways to combat cyberattacks, threat actors are finding other methods for spreading their malware to developers.",
+  "processed_at": "2025-07-01T22:38:19.205782"
+}

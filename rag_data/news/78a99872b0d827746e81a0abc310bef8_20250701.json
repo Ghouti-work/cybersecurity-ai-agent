@@ -1,0 +1,26 @@
+{
+  "id": "78a99872b0d827746e81a0abc310bef8",
+  "title": "Patch Tuesday, June 2025 Edition",
+  "url": "https://krebsonsecurity.com/2025/06/patch-tuesday-june-2025-edition/",
+  "source": "KrebsOnSecurity",
+  "category": "news",
+  "published": "Wed, 11 Jun 2025 00:10:53 +0000",
+  "summary": "Patch Tuesday, June 2025 Edition. June 10, 2025 4 Comments Microsoft today released security updates to fix at least 67 vulnerabilities in its Windows operating systems and software. Redmond warns that one of the flaws is already unde...",
+  "classification": "news",
+  "tags": [
+    "vulnerability",
+    "exploit",
+    "zero-day",
+    "CVE",
+    "patch"
+  ],
+  "security_score": 10,
+  "security_identifiers": [
+    "CVE-2025-33053",
+    "CVE-2025-4664",
+    "CVE-2025-33073",
+    "CVE-2025-5419"
+  ],
+  "content": "June 10, 2025 4 Comments Microsoft today released security updates to fix at least 67 vulnerabilities in its Windows operating systems and software. Redmond warns that one of the flaws is already under active attack, and that software blueprints showing how to exploit a pervasive Windows bug patched this month are now public. The sole zero-day flaw this month is CVE-2025-33053, a remote code execution flaw in the Windows implementation of WebDAV \u2014 an HTTP extension that lets users remotely manage files and directories on a server. While WebDAV isn\u2019t enabled by default in Windows, its presence in legacy or specialized systems still makes it a relevant target, said Seth Hoyt, senior security engineer at Automox. Adam Barnett, lead software engineer at Rapid7, said Microsoft\u2019s advisory for CVE-2025-33053 does not mention that the Windows implementation of WebDAV is listed as deprecated since November 2023, which in practical terms means that the WebClient service no longer starts by default. \u201cThe advisory also has attack complexity as low, which means that exploitation does not require preparation of the target environment in any way that is beyond the attacker\u2019s control,\u201d Barnett said. \u201cExploitation relies on the user clicking a malicious link. It\u2019s not clear how an asset would be immediately vulnerable if the service isn\u2019t running, but all versions of Windows receive a patch, including those released since the deprecation of WebClient, like Server 2025 and Windows 11 24H2.\u201d Microsoft warns that an \u201celevation of privilege\u201d vulnerability in the Windows Server Message Block (SMB) client (CVE-2025-33073) is likely to be exploited, given that proof-of-concept code for this bug is now public. CVE-2025-33073 has a CVSS risk score of 8.8 (out of 10), and exploitation of the flaw leads to the attacker gaining \u201cSYSTEM\u201d level control over a vulnerable PC. \u201cWhat makes this especially dangerous is that no further user interaction is required after the initial connection\u2014something",
+  "processed_at": "2025-07-01T22:37:46.559348"
+}

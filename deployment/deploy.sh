@@ -214,13 +214,13 @@ elif [[ "$DEPLOYMENT_MODE" == "azure" ]]; then
     python3 -m venv venv
     source venv/bin/activate
     pip install --upgrade pip > /dev/null 2>&1
-    pip install -r requirements.txt > /dev/null 2>&1
+    pip install -r config/requirements.txt > /dev/null 2>&1
     
     # Step 3: Configuration
     ((current_step++))
     show_progress $current_step $total_steps "Creating production configuration..."
     if [[ ! -f ".env" ]]; then
-        cp .env.template .env
+        cp config/.env.template .env
         echo -e "\n${YELLOW}📝 Please configure .env file with production values${NC}"
     fi
     
@@ -239,7 +239,7 @@ User=$(whoami)
 Group=$(whoami)
 WorkingDirectory=$PROJECT_DIR
 Environment=PATH=$PROJECT_DIR/venv/bin:/usr/local/bin:/usr/bin:/bin
-ExecStart=$PROJECT_DIR/venv/bin/python $PROJECT_DIR/main.py
+ExecStart=$PROJECT_DIR/venv/bin/python $PROJECT_DIR/launch.py
 Restart=always
 RestartSec=10
 StandardOutput=journal
@@ -301,8 +301,8 @@ EOF
     show_progress $current_step $total_steps "Setting up automation..."
     (crontab -l 2>/dev/null || echo "") | cat - << EOF | crontab -
 # Cybersecurity AI Agent automation
-*/30 * * * * cd $PROJECT_DIR && python health_monitor.py
-0 */6 * * * cd $PROJECT_DIR && venv/bin/python -c "import asyncio; from rss_fetcher import RSSFetcher; import yaml; asyncio.run(RSSFetcher(yaml.safe_load(open('config.yaml'))).fetch_all_feeds())"
+*/30 * * * * cd $PROJECT_DIR && venv/bin/python agents/health_monitor.py
+0 */6 * * * cd $PROJECT_DIR && venv/bin/python -c "import asyncio; from agents.rss_fetcher import RSSFetcher; import yaml; asyncio.run(RSSFetcher(yaml.safe_load(open('config/config.yaml'))).fetch_all_feeds())"
 0 2 * * * cd $PROJECT_DIR && find temp/ -type f -mtime +1 -delete
 EOF
     
@@ -430,9 +430,9 @@ elif [[ "$DEPLOYMENT_MODE" == "health" ]]; then
     echo -e "${BLUE}🔍 Running health monitor...${NC}"
     echo
     
-    if [[ -f "health_monitor.py" ]] && [[ -d "venv" ]]; then
+    if [[ -f "agents/health_monitor.py" ]] && [[ -d "venv" ]]; then
         source venv/bin/activate
-        python health_monitor.py
+        python agents/health_monitor.py
     else
         echo -e "${RED}❌ Health monitor not available${NC}"
     fi
@@ -623,7 +623,8 @@ User=$USER
 Group=$GROUP
 WorkingDirectory=$project_dir
 Environment=PATH=$project_dir/venv/bin:/usr/local/bin:/usr/bin:/bin
-ExecStart=$project_dir/venv/bin/python $project_dir/core/main.py
+Environment=PYTHONPATH=$project_dir
+ExecStart=$project_dir/venv/bin/python $project_dir/launch.py
 Restart=always
 RestartSec=10
 StandardOutput=journal

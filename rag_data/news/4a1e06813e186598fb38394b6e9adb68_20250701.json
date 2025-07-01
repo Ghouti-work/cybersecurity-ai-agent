@@ -1,0 +1,18 @@
+{
+  "id": "4a1e06813e186598fb38394b6e9adb68",
+  "title": "Citrix Patches Critical Vulns in NetScaler ADC and Gateway",
+  "url": "https://www.darkreading.com/vulnerabilities-threats/citrix-patches-vulns-netscaler-adc-gateway",
+  "source": "Dark Reading",
+  "category": "news",
+  "published": "Mon, 23 Jun 2025 19:04:59 GMT",
+  "summary": "Citrix Patches Critical Vulns in NetScaler ADC and Gateway. Citrix is recommending its customers upgrade their appliances to mitigate potential exploitation of the vulnerabilities....",
+  "classification": "news",
+  "tags": [
+    "exploit",
+    "patch"
+  ],
+  "security_score": 5,
+  "security_identifiers": [],
+  "content": "Citrix is recommending its customers upgrade their appliances to mitigate potential exploitation of the vulnerabilities.",
+  "processed_at": "2025-07-01T22:38:17.143255"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "8b1bcd45cdc1dc6b511193f2281240a0",
+  "title": "nOAuth Vulnerability Still Affects 9% of Microsoft Entra SaaS Apps Two Years After Discovery",
+  "url": "https://thehackernews.com/2025/06/noauth-vulnerability-still-affects-9-of.html",
+  "source": "The Hacker News",
+  "category": "news",
+  "published": "Wed, 25 Jun 2025 22:26:00 +0530",
+  "summary": "nOAuth Vulnerability Still Affects 9% of Microsoft Entra SaaS Apps Two Years After Discovery. How 100+ Security Leaders Are Tackling AI RiskWiz's latest guide explores how organizations are approaching AI security today, where the biggest gaps exist, and what actions leading teams are taking t...",
+  "classification": "news",
+  "tags": [
+    "vulnerability",
+    "security"
+  ],
+  "security_score": 5,
+  "security_identifiers": [],
+  "content": "How 100+ Security Leaders Are Tackling AI RiskWiz's latest guide explores how organizations are approaching AI security today, where the biggest gaps exist, and what actions leading teams are taking to reduce risk.",
+  "processed_at": "2025-07-01T22:38:37.548267"
+}

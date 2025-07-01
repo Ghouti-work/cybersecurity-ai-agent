@@ -1,0 +1,17 @@
+{
+  "id": "6eff9822c0b2b27ae34f5e7e3a17673f",
+  "title": "U.S. Sanctions Cloud Provider \u2018Funnull\u2019 as Top Source of \u2018Pig Butchering\u2019 Scams",
+  "url": "https://krebsonsecurity.com/2025/05/u-s-sanctions-cloud-provider-funnull-as-top-source-of-pig-butchering-scams/",
+  "source": "KrebsOnSecurity",
+  "category": "news",
+  "published": "Fri, 30 May 2025 01:55:16 +0000",
+  "summary": "U.S. Sanctions Cloud Provider \u2018Funnull\u2019 as Top Source of \u2018Pig Butchering\u2019 Scams. May 29, 2025 14 Comments Image: Shutterstock, ArtHead. The U.S. government today imposed economic sanctions on Funnull Technology Inc., a Philippines-based company that provides computer infrastructur...",
+  "classification": "news",
+  "tags": [
+    "security"
+  ],
+  "security_score": 4,
+  "security_identifiers": [],
+  "content": "May 29, 2025 14 Comments Image: Shutterstock, ArtHead. The U.S. government today imposed economic sanctions on Funnull Technology Inc., a Philippines-based company that provides computer infrastructure for hundreds of thousands of websites involved in virtual currency investment scams known as \u201cpig butchering.\u201d In January 2025, KrebsOnSecurity detailed how Funnull was being used as a content delivery network that catered to cybercriminals seeking to route their traffic through U.S.-based cloud providers. \u201cAmericans lose billions of dollars annually to these cyber scams, with revenues generated from these crimes rising to record levels in 2024,\u201d reads a statement from the U.S. Department of the Treasury, which sanctioned Funnull and its 40-year-old Chinese administrator Liu Lizhi. \u201cFunnull has directly facilitated several of these schemes, resulting in over $200 million in U.S. victim-reported losses.\u201d The Treasury Department said Funnull\u2019s operations are linked to the majority of virtual currency investment scam websites reported to the FBI. The agency said Funnull directly facilitated pig butchering and other schemes that resulted in more than $200 million in financial losses by Americans. Pig butchering is a rampant form of fraud wherein people are lured by flirtatious strangers online into investing in fraudulent cryptocurrency trading platforms. Victims are coached to invest more and more money into what appears to be an extremely profitable trading platform, only to find their money is gone when they wish to cash out. The scammers often insist that investors pay additional \u201ctaxes\u201d on their crypto \u201cearnings\u201d before they can see their invested funds again (spoiler: they never do), and a shocking number of people have lost six figures or more through these pig butchering scams. KrebsOnSecurity\u2019s January story on Funnull was based on research from the security firm Silent Push, which discovered in October 2024 that a vast number of domains hosted via Funnull were p",
+  "processed_at": "2025-07-01T22:37:47.755750"
+}

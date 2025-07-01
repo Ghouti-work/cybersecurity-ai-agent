@@ -1,0 +1,19 @@
+{
+  "id": "b2c3cd7aa489f7f842d3d0c176bc3e55",
+  "title": "'CitrixBleed 2' Shows Signs of Active Exploitation",
+  "url": "https://www.darkreading.com/vulnerabilities-threats/citrixbleed-2-active-exploitation",
+  "source": "Dark Reading",
+  "category": "news",
+  "published": "Fri, 27 Jun 2025 18:50:12 GMT",
+  "summary": "'CitrixBleed 2' Shows Signs of Active Exploitation. If exploited, the critical vulnerability allows attackers to maintain access for longer periods of time than the original CitrixBleed flaw, all while remaining undetected....",
+  "classification": "news",
+  "tags": [
+    "vulnerability",
+    "exploit",
+    "attack"
+  ],
+  "security_score": 6,
+  "security_identifiers": [],
+  "content": "If exploited, the critical vulnerability allows attackers to maintain access for longer periods of time than the original CitrixBleed flaw, all while remaining undetected.",
+  "processed_at": "2025-07-01T22:38:00.386428"
+}

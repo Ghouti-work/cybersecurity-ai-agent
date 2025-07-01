@@ -1,0 +1,20 @@
+{
+  "id": "472b2b792a4250131ecc35da1a0541bd",
+  "title": "Senator Chides FBI for Weak Advice on Mobile Security",
+  "url": "https://krebsonsecurity.com/2025/06/senator-chides-fbi-for-weak-advice-on-mobile-security/",
+  "source": "KrebsOnSecurity",
+  "category": "news",
+  "published": "Mon, 30 Jun 2025 17:33:59 +0000",
+  "summary": "Senator Chides FBI for Weak Advice on Mobile Security. June 30, 2025 15 Comments Agents with the Federal Bureau of Investigation (FBI) briefed Capitol Hill staff recently on hardening the security of their mobile devices, after a contacts list stolen from...",
+  "classification": "news",
+  "tags": [
+    "phishing",
+    "zero-day",
+    "security",
+    "attack"
+  ],
+  "security_score": 7,
+  "security_identifiers": [],
+  "content": "June 30, 2025 15 Comments Agents with the Federal Bureau of Investigation (FBI) briefed Capitol Hill staff recently on hardening the security of their mobile devices, after a contacts list stolen from the personal phone of the White House Chief of Staff Susie Wiles was reportedly used to fuel a series of text messages and phone calls impersonating her to U.S. lawmakers. But in a letter this week to the FBI, one of the Senate\u2019s most tech-savvy lawmakers says the feds aren\u2019t doing enough to recommend more appropriate security protections that are already built into most consumer mobile devices. A screenshot of the first page from Sen. Wyden\u2019s letter to FBI Director Kash Patel. On May 29, The Wall Street Journal reported that federal authorities were investigating a clandestine effort to impersonate Ms. Wiles via text messages and in phone calls that may have used AI to spoof her voice. According to The Journal, Wiles told associates her cellphone contacts were hacked, giving the impersonator access to the private phone numbers of some of the country\u2019s most influential people. The execution of this phishing and impersonation campaign \u2014 whatever its goals may have been \u2014 suggested the attackers were financially motivated, and not particularly sophisticated. \u201cIt became clear to some of the lawmakers that the requests were suspicious when the impersonator began asking questions about Trump that Wiles should have known the answers to\u2014and in one case, when the impersonator asked for a cash transfer, some of the people said,\u201d the Journal wrote. \u201cIn many cases, the impersonator\u2019s grammar was broken and the messages were more formal than the way Wiles typically communicates, people who have received the messages said. The calls and text messages also didn\u2019t come from Wiles\u2019s phone number.\u201d Sophisticated or not, the impersonation campaign was soon punctuated by the murder of Minnesota House of Representatives Speaker Emerita Melissa Hortman and her husband, and the shooting of ",
+  "processed_at": "2025-07-01T22:37:45.453316"
+}

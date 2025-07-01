@@ -20,7 +20,7 @@ from loguru import logger
 import yaml
 
 from rag_embedder import RAGEmbedder
-from shared_utils import (
+from core.shared_utils import (
     ConfigManager, LoggerManager, GeminiClient,
     DirectoryManager, PromptTemplates, FileHandler
 )

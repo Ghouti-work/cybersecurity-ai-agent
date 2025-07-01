@@ -1,0 +1,17 @@
+{
+  "id": "ecf1ec97c3066970821474ed31249084",
+  "title": "SparkKitty Swipes Pics From iOS, Android Devices",
+  "url": "https://www.darkreading.com/mobile-security/sparkkitty-swipes-pics-ios-android-devices",
+  "source": "Dark Reading",
+  "category": "news",
+  "published": "Mon, 23 Jun 2025 21:25:55 GMT",
+  "summary": "SparkKitty Swipes Pics From iOS, Android Devices. Like its predecessor, SparkCat, the new malware appears to be going after sensitive data \u2014 such as seed phrases for cryptocurrency wallets \u2014 in device photo galleries....",
+  "classification": "news",
+  "tags": [
+    "malware"
+  ],
+  "security_score": 4,
+  "security_identifiers": [],
+  "content": "Like its predecessor, SparkCat, the new malware appears to be going after sensitive data \u2014 such as seed phrases for cryptocurrency wallets \u2014 in device photo galleries.",
+  "processed_at": "2025-07-01T22:38:15.606126"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "9877f49eab8dbb59f2477d03366271c4",
+  "title": "OneClik Red Team Campaign Targets Energy Sector Using Microsoft ClickOnce and Golang Backdoors",
+  "url": "https://thehackernews.com/2025/06/oneclik-malware-targets-energy-sector.html",
+  "source": "The Hacker News",
+  "category": "news",
+  "published": "Fri, 27 Jun 2025 12:01:00 +0530",
+  "summary": "OneClik Red Team Campaign Targets Energy Sector Using Microsoft ClickOnce and Golang Backdoors. How 100+ Security Leaders Are Tackling AI RiskWiz's latest guide explores how organizations are approaching AI security today, where the biggest gaps exist, and what actions leading teams are taking t...",
+  "classification": "news",
+  "tags": [
+    "security",
+    "backdoor"
+  ],
+  "security_score": 5,
+  "security_identifiers": [],
+  "content": "How 100+ Security Leaders Are Tackling AI RiskWiz's latest guide explores how organizations are approaching AI security today, where the biggest gaps exist, and what actions leading teams are taking to reduce risk.",
+  "processed_at": "2025-07-01T22:38:31.324763"
+}

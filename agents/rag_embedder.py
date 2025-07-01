@@ -18,7 +18,7 @@ import numpy as np
 from loguru import logger
 import yaml
 
-from shared_utils import ConfigManager, LoggerManager, DirectoryManager
+from core.shared_utils import ConfigManager, LoggerManager, DirectoryManager
 
 class RAGEmbedder:
     def __init__(self, config: Dict[str, Any] = None):
@@ -29,7 +29,7 @@ class RAGEmbedder:
         self.similarity_threshold = self.config['rag']['similarity_threshold']
         self.max_results = self.config['rag']['max_results']
         
-        self.logger = LoggerManager.setup_logger('rag')
+        LoggerManager.setup_logger('rag')
         
         # Initialize embedding model
         self.embedding_model = None
@@ -45,7 +45,7 @@ class RAGEmbedder:
         DirectoryManager.ensure_directory("rag_data/chroma_db")
         DirectoryManager.ensure_directory("rag_data/embeddings")
         
-        self.logger.info("📚 RAG Embedder initialized")
+        logger.info("📚 RAG Embedder initialized")
 
     async def initialize(self):
         """Async initialization method for compatibility with main platform"""
@@ -58,20 +58,20 @@ class RAGEmbedder:
             if self.chroma_client is None:
                 self._initialize_chromadb()
             
-            self.logger.info("✅ RAG Embedder async initialization complete")
+            logger.info("✅ RAG Embedder async initialization complete")
             return True
         except Exception as e:
-            self.logger.error(f"❌ RAG Embedder initialization failed: {e}")
+            logger.error(f"❌ RAG Embedder initialization failed: {e}")
             return False
 
     def _initialize_embedding_model(self):
         """Initialize the sentence transformer model"""
         try:
-            self.logger.info(f"Loading embedding model: {self.embedding_model_name}")
+            logger.info(f"Loading embedding model: {self.embedding_model_name}")
             self.embedding_model = SentenceTransformer(self.embedding_model_name)
-            self.logger.info("Embedding model loaded successfully")
+            logger.info("Embedding model loaded successfully")
         except Exception as e:
-            self.logger.error(f"Failed to load embedding model: {e}")
+            logger.error(f"Failed to load embedding model: {e}")
             raise
 
     def _initialize_chromadb(self):
@@ -96,14 +96,14 @@ class RAGEmbedder:
                         metadata={"description": description}
                     )
                     self.collections[collection_name] = collection
-                    self.logger.info(f"Initialized collection: {collection_name}")
+                    logger.info(f"Initialized collection: {collection_name}")
                 except Exception as e:
-                    self.logger.error(f"Failed to initialize collection {collection_name}: {e}")
+                    logger.error(f"Failed to initialize collection {collection_name}: {e}")
             
-            self.logger.info("ChromaDB initialized successfully")
+            logger.info("ChromaDB initialized successfully")
             
         except Exception as e:
-            self.logger.error(f"Failed to initialize ChromaDB: {e}")
+            logger.error(f"Failed to initialize ChromaDB: {e}")
             raise
 
     async def add_document(self, content: str, metadata: Dict[str, Any], collection: str = "general") -> str:
@@ -114,7 +114,7 @@ class RAGEmbedder:
             
             # Check if document already exists
             if await self._document_exists(doc_id, collection):
-                self.logger.debug(f"Document already exists: {doc_id}")
+                logger.debug(f"Document already exists: {doc_id}")
                 return doc_id
             
             # Generate embeddings
@@ -141,11 +141,11 @@ class RAGEmbedder:
                 ids=[doc_id]
             )
             
-            self.logger.info(f"Added document to {collection}: {doc_id}")
+            logger.info(f"Added document to {collection}: {doc_id}")
             return doc_id
             
         except Exception as e:
-            self.logger.error(f"Failed to add document: {e}")
+            logger.error(f"Failed to add document: {e}")
             raise
 
     async def search_similar(self, query: str, collection: str = None, n_results: int = None) -> List[Dict[str, Any]]:
@@ -187,11 +187,11 @@ class RAGEmbedder:
             # Sort by similarity score
             results.sort(key=lambda x: x['similarity_score'], reverse=True)
             
-            self.logger.info(f"Found {len(results)} similar documents for query: {query[:50]}...")
+            logger.info(f"Found {len(results)} similar documents for query: {query[:50]}...")
             return results[:n_results]
             
         except Exception as e:
-            self.logger.error(f"Search failed: {e}")
+            logger.error(f"Search failed: {e}")
             raise
 
     async def search_by_category(self, category: str, query: str = None, n_results: int = None) -> List[Dict[str, Any]]:

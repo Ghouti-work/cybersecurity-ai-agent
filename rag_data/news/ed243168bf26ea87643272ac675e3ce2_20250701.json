@@ -1,0 +1,18 @@
+{
+  "id": "ed243168bf26ea87643272ac675e3ce2",
+  "title": "Millions of Brother Printers Hit by Critical, Unpatchable Bug",
+  "url": "https://www.darkreading.com/endpoint-security/millions-brother-printers-critical-unpatchable-bug",
+  "source": "Dark Reading",
+  "category": "news",
+  "published": "Wed, 25 Jun 2025 18:57:19 GMT",
+  "summary": "Millions of Brother Printers Hit by Critical, Unpatchable Bug. A slew of vulnerabilities, including a critical CVSS 9.8 that enables an attacker to generate the default admin password, affect hundreds of printer, scanner, and label-maker models made by manufactur...",
+  "classification": "news",
+  "tags": [
+    "patch",
+    "attack"
+  ],
+  "security_score": 5,
+  "security_identifiers": [],
+  "content": "A slew of vulnerabilities, including a critical CVSS 9.8 that enables an attacker to generate the default admin password, affect hundreds of printer, scanner, and label-maker models made by manufacturer Brother.",
+  "processed_at": "2025-07-01T22:38:05.854057"
+}

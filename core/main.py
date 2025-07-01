@@ -16,13 +16,17 @@ import yaml
 from loguru import logger
 from dotenv import load_dotenv
 
+# Add project root to path for imports
+project_root = Path(__file__).parent.parent
+sys.path.insert(0, str(project_root))
+
 # Import all components
-from telegram_bot import CybersecurityBot
-from task_router import TaskRouter
-from rss_fetcher import RSSFetcher
-from pentestgpt_gemini import PentestGPT
-from rag_embedder import RAGEmbedder
-from shared_utils import (
+from core.telegram_bot import CybersecurityBot
+from core.task_router import TaskRouter
+from agents.rss_fetcher import RSSFetcher
+from agents.pentestgpt_gemini import PentestGPTGemini
+from agents.rag_embedder import RAGEmbedder
+from core.shared_utils import (
     ConfigManager, LoggerManager, DirectoryManager,
     EnvironmentValidator, initialize_shared_components
 )
@@ -124,7 +128,7 @@ class CyberAgentPlatform:
             await self.components['rag_embedder'].initialize()
             logger.info("✅ RAG Embedder initialized")
             
-            self.components['pentestgpt'] = PentestGPT(self.config)
+            self.components['pentestgpt'] = PentestGPTGemini(self.config)
             logger.info("✅ PentestGPT initialized")
             
             self.components['task_router'] = TaskRouter(self.config)
